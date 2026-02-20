@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 1.6fr 1.4fr;
     padding: 0 1rem;
+    column-gap: 1rem;
 }
 
 .info-section {
@@ -12,9 +13,3 @@
     gap: 1rem;
 }
 
-.recent-column {
-    background: #fff;
-    padding: 12px;
-    max-height: 80vh;
-    overflow: auto;
-}

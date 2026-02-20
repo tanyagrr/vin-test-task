@@ -1,4 +1,67 @@
 .form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-inp-but {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.form div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.form label {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form input:focus {
+    outline: none;
+    border-color: #999;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.form button {
+    padding: 0.5rem 1rem;
+    background-color: #eeeeee;
+    color: #000;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover:not(:disabled) {
+    background-color: #cccccc;
+}
+
+.form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.error {
+    font-size: 0.875rem;
+    color: #c91f1f;
+    margin-top: 0.25rem;
+}
+
+.loader {
+    display: flex;
+    justify-content: flex-start;
 }

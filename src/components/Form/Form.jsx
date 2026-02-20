@@ -10,21 +10,29 @@ function VinForm({ setResults, setRecentSearch, selectedVin }) {
 
   const validate = (values) => {
     const errors = {};
-    if (!values.vin) {
-      errors.vin = "This field is required";
-    } else if (values.vin.length < 17) {
-      errors.vin = "Should be at least 17 characters";
+    const vin = String(values.vin || "").trim();
+    if (!vin) {
+      errors.vin = "This field is required.";
+    } else {
+      const vinRegex = /^[A-HJ-NPR-Z0-9]{17}$/;
+      if (!vinRegex.test(vin.toUpperCase())) {
+        errors.vin =
+          "Invalid VIN format. VIN must only include upper-case letters and numbers and be at least 17 characters.";
+      }
     }
     return errors;
   };
 
   const handleSubmit = (values) => {
+    const vin = String(values.vin || "")
+      .trim()
+      .toUpperCase();
     setLoading(true);
-    fetchChars(values.vin)
+    fetchChars(vin)
       .then((data) => {
         if (data) {
           setResults(data);
-          saveSearch(values.vin, data, setRecentSearch);
+          saveSearch(vin, data, setRecentSearch);
         }
       })
       .catch((err) => console.error(err))
@@ -43,27 +51,21 @@ function VinForm({ setResults, setRecentSearch, selectedVin }) {
       validate={validate}
     >
       <Form className="form">
+        <div className="form-inp-but">
+          <div>
+            <label htmlFor="vin">Vin: </label>
+            <Field type="text" placeholder="Enter VIN" id="vin" name="vin" />
+          </div>
+          <button type="submit" disabled={loading}>
+            {loading ? "Decoding…" : "Decode"}
+          </button>
+        </div>
+        <ErrorMessage className="error" name="vin" component="div" />
         {loading && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-start",
-              marginBottom: 12,
-            }}
-          >
-            <ClipLoader size={20} />
+          <div className="loader">
+            <ClipLoader size={40} />
           </div>
         )}
-
-        <div>
-          <label htmlFor="vin">Vin:</label>
-          <Field type="text" placeholder="Enter VIN" id="vin" name="vin" />
-          <ErrorMessage name="vin" component="div" />
-        </div>
-
-        <button type="submit" disabled={loading}>
-          {loading ? "Decoding…" : "Decode"}
-        </button>
       </Form>
     </Formik>
   );

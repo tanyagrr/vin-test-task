@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import getRecentSearches from "../../utils/recentSearches/getRecentSearches";
 import clearRecentSearches from "../../utils/recentSearches/clearRecentSearches";
+import "./RecentSearches.css";
 
 function RecentSearches({
   recentSearch,
@@ -43,13 +44,17 @@ function RecentSearches({
           <ul>
             {items.map((s, idx) => (
               <li key={s.vin + idx}>
-                <button type="button" onClick={() => handleClick(s)}>
-                  {s.vin} ({Array.isArray(s.results) ? s.results.length : "-"})
+                <button
+                  className="recent-search-button"
+                  type="button"
+                  onClick={() => handleClick(s)}
+                >
+                  {s.vin}
                 </button>
               </li>
             ))}
           </ul>
-          <button type="button" onClick={handleClear} style={{ marginTop: 8 }}>
+          <button className="clear-button" type="button" onClick={handleClear}>
             Clear
           </button>
         </>
