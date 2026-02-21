@@ -1,0 +1,7 @@
+.message {
+    font-weight: 500;
+    color: #333;
+    width: fit-content;
+    margin: 10rem auto 0;
+    text-align: center;
+}

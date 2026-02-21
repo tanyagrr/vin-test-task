@@ -5,21 +5,26 @@ import Characteristics from "./pages/Characteristics/Characteristics";
 import Main from "./pages/Main/Main";
 import CharacteristicDesc from "./pages/CharacteristicDesc/CharacteristicDesc";
 import { CharacteristicsProvider } from "./context/CharacteristicsContext";
+import NotFound from "./pages/NotFound/NotFound";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <CharacteristicsProvider>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="/variables/" element={<Characteristics />} />
-              <Route path="/variables/:id" element={<CharacteristicDesc />} />
-            </Routes>
-          </Layout>
-        </CharacteristicsProvider>
-      </BrowserRouter>
+      <ErrorBoundary>
+        <BrowserRouter>
+          <CharacteristicsProvider>
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="/variables/" element={<Characteristics />} />
+                <Route path="/variables/:id" element={<CharacteristicDesc />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Layout>
+          </CharacteristicsProvider>
+        </BrowserRouter>
+      </ErrorBoundary>
     </>
   );
 }
