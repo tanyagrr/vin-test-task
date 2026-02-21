@@ -1,45 +1,15 @@
 import { Link, useParams } from "react-router-dom";
 import "./CharacteristicDesc.css";
-import fetchCharsDesc from "../../api/charsDesc";
-import { useEffect, useState } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
+import { useContext } from "react";
 import extractAndDecodeHtml from "../../utils/decodingDesc/extractAndDecodeHtml";
+import { CharacteristicsContext } from "../../context/CharacteristicsContext";
 
 function CharacteristicDesc() {
   const { id } = useParams();
-  const [charDesc, setCharDesc] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { characteristics } = useContext(CharacteristicsContext);
 
-  useEffect(() => {
-    setLoading(true);
-    fetchCharsDesc()
-      .then((data) => {
-        if (data) {
-          const char = data.find((c) => String(c.ID) === String(id));
-          setCharDesc(char || null);
-        }
-      })
-      .catch((err) => console.error(err))
-      .finally(() => setLoading(false));
-  }, [id]);
-
-  if (loading) {
-    return (
-      <div className="characteristics-desc">
-        <Link to="/variables">Back to Characteristics</Link>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            marginTop: 20,
-            marginLeft: 12,
-          }}
-        >
-          <ClipLoader />
-        </div>
-      </div>
-    );
-  }
+  const charDesc =
+    characteristics.find((c) => String(c.ID) === String(id)) || null;
 
   if (!charDesc) {
     return (
