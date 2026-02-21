@@ -4,24 +4,10 @@ import "./Form.css";
 import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import saveSearch from "../../utils/recentSearches/saveSearch";
+import validate from "../../utils/validateVin/validateVin";
 
 function VinForm({ setResults, setRecentSearch, selectedVin }) {
   const [loading, setLoading] = useState(false);
-
-  const validate = (values) => {
-    const errors = {};
-    const vin = String(values.vin || "").trim();
-    if (!vin) {
-      errors.vin = "This field is required.";
-    } else {
-      const vinRegex = /^[A-HJ-NPR-Z0-9]{17}$/;
-      if (!vinRegex.test(vin.toUpperCase())) {
-        errors.vin =
-          "Invalid VIN format. VIN must only include upper-case letters and numbers and be at least 17 characters.";
-      }
-    }
-    return errors;
-  };
 
   const handleSubmit = (values) => {
     const vin = String(values.vin || "")

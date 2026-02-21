@@ -19,6 +19,7 @@ This project is a VIN Decoder web application built with React and Vite. The app
 - Conditional rendering
 - Error handling
 - Basic UI structure
+- Basic unit tests
 
 # Tech Stack
 
@@ -26,6 +27,7 @@ This project is a VIN Decoder web application built with React and Vite. The app
 - Vite
 - React Router
 - Formik
+- Vitest
 
 # How to Run the Project Locally
 
