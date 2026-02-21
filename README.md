@@ -1,8 +1,8 @@
-## Check it out:
+# Check it out:
 
 https://vin-test-task.vercel.app/
 
-## Project Description
+# Project Description
 
 This project is a VIN Decoder web application built with React and Vite. The application allows users to:
 
@@ -20,41 +20,41 @@ This project is a VIN Decoder web application built with React and Vite. The app
 - Error handling
 - Basic UI structure
 
-## Tech Stack
+# Tech Stack
 
 - React 19
 - Vite
 - React Router
 - Formik
 
-## How to Run the Project Locally
+# How to Run the Project Locally
 
-# 1. Clone the repository
+## 1. Clone the repository
 
 git clone https://github.com/tanyagrr/vin-test-task.git
 cd vin-test-task
 
-# 2. Install dependencies
+## 2. Install dependencies
 
 npm install
 
-# 3. Start development server
+## 3. Start development server
 
 npm run dev
 
-## Application Routes
+# Application Routes
 
-# / — Main Page
+## / — Main Page
 
 ● Contains VIN input form
 ● Sends request to NHTSA API
 ● Displays decoded vehicle information
 
-# /variables
+## /variables
 
 ● Displays a list of available variables
 
-# /variables/:variableId
+## /variables/:variableId
 
 ● Displays detailed information about a selected variable
 
