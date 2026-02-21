@@ -10,7 +10,7 @@ function Main() {
   const [selectedVin, setSelectedVin] = useState("");
 
   return (
-    <div className="main">
+    <section className="main">
       <div className="info-section">
         <Form
           setResults={setResults}
@@ -25,7 +25,7 @@ function Main() {
         setRecentSearch={setRecentSearch}
         setSelectedVin={setSelectedVin}
       ></RecentSearches>
-    </div>
+    </section>
   );
 }
 

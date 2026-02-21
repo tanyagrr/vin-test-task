@@ -5,7 +5,7 @@ function Layout({ children }) {
     <>
       <Header />
 
-      <div className="layout">{children}</div>
+      <main className="layout">{children}</main>
     </>
   );
 }

@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Characteristics.css";
 import { CharacteristicsContext } from "../../context/CharacteristicsContext";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Characteristics() {
-  const { characteristics } = useContext(CharacteristicsContext);
+  const { characteristics, loading } = useContext(CharacteristicsContext);
 
   return (
     <div className="characteristics">
@@ -23,6 +24,11 @@ function Characteristics() {
             </li>
           ))}
       </ul>
+      {loading && (
+        <div className="loader">
+          <ClipLoader size={40} />
+        </div>
+      )}
     </div>
   );
 }
