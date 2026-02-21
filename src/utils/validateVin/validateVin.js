@@ -8,7 +8,7 @@ export default function validateVin(values) {
     const vinRegex = /^[A-HJ-NPR-Z0-9]{17}$/;
     if (!vinRegex.test(vin.toUpperCase())) {
       errors.vin =
-        "Invalid VIN format. VIN must only include upper-case letters and numbers and be at least 17 characters.";
+        "Invalid VIN format. VIN must only include upper-case letters (except I, O, Q) and numbers and be at least 17 characters.";
     }
   }
 

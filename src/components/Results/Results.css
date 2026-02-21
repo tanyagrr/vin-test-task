@@ -36,6 +36,14 @@
     background-color: #cccccc;
 }
 
+.no-results {
+    padding: 0.5rem 0.5rem;
+    margin-top: -0.2rem;
+    color: #333;
+    font-size: 1rem;
+    width: fit-content;
+}
+
 @media (max-width: 768px) {
     .results {
         padding: 0.75rem;

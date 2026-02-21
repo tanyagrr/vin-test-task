@@ -6,6 +6,15 @@ function Results({ results }) {
   const handleClick = () => {
     setShowAll(!showAll);
   };
+
+  if (!results || results.length === 0) {
+    return (
+      <h4 className="no-results">
+        Couldn't find any results for the provided VIN.
+      </h4>
+    );
+  }
+
   return (
     <>
       {results?.length > 0 && (

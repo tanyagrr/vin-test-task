@@ -17,6 +17,7 @@ function VinForm({ setResults, setRecentSearch, selectedVin }) {
     fetchChars(vin)
       .then((data) => {
         if (data) {
+          console.log(data);
           setResults(data);
           saveSearch(vin, data, setRecentSearch);
         }
