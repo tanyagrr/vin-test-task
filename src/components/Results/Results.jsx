@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Results.css";
+import ResultItem from "../ResultItem/ResultItem";
 
 function Results({ results }) {
   const [showAll, setShowAll] = useState(false);
@@ -23,15 +24,11 @@ function Results({ results }) {
         <div className="results">
           {showAll
             ? results.map((item, index) => (
-                <div key={index} className="result-item">
-                  <strong>{item.Variable}:</strong> {item.Value}
-                </div>
+                <ResultItem key={index} item={item} />
               ))
-            : results.slice(0, 8).map((item, index) => (
-                <div key={index} className="result-item">
-                  <strong>{item.Variable}:</strong> {item.Value}
-                </div>
-              ))}
+            : results
+                .slice(0, 8)
+                .map((item, index) => <ResultItem key={index} item={item} />)}
         </div>
       )}
       {results?.length > 0 && (
