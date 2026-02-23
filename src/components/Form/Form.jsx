@@ -14,12 +14,14 @@ function VinForm({ setResults, setRecentSearch, selectedVin }) {
       .trim()
       .toUpperCase();
     setLoading(true);
+    setResults(null);
     fetchChars(vin)
       .then((data) => {
-        if (data) {
-          console.log(data);
+        if (Array.isArray(data)) {
           setResults(data);
           saveSearch(vin, data, setRecentSearch);
+        } else {
+          setResults([]);
         }
       })
       .catch((err) => console.error(err))

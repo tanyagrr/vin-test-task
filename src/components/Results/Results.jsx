@@ -7,7 +7,9 @@ function Results({ results }) {
     setShowAll(!showAll);
   };
 
-  if (!results || results.length === 0) {
+  if (results === null) return null;
+
+  if (results.length === 0) {
     return (
       <h4 className="no-results">
         Couldn't find any results for the provided VIN.

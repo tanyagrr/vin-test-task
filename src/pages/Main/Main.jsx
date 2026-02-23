@@ -5,7 +5,7 @@ import "./Main.css";
 import { useState } from "react";
 
 function Main() {
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState(null);
   const [recentSearch, setRecentSearch] = useState([]);
   const [selectedVin, setSelectedVin] = useState("");
 
